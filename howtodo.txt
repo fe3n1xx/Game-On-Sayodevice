@@ -1,0 +1,13 @@
+Code the files in this order
+
+1 board_config.h — verified hardware settings: MCU clock, display connection, input pins, memory/storage details. Fill this only with confirmed O3C-specific information.
+0 display.h → display.c — display functions, starting with initialization, clear screen, draw pixel/rectangle/text.
+0 input.h → input.c — read buttons and knob; convert hardware readings into simple events like UP, SELECT, BACK.
+0 storage.h → storage.c — later, list and read game files. Initially, make it return one built-in demo game.
+0 game_api.h → game_api.c — the safe functions scripts are allowed to use, such as drawing, reading input, and checking elapsed time.
+0 runtime.h → runtime.c — load a game script and run its lifecycle functions. Start with a tiny test format, not a general-purpose programming language.
+0 game_menu.h → game_menu.c — show installed games, launch a selection, and return to the menu.
+0 main.c — initialize the device and run the overall application flow.
+0 tools/script_check.py — computer-side validation tool for game files.
+0 tools/game_transfer.py — only after device-side storage works; transfer game files to the O3C. This is not the same as a firmware updater.
+0 Make and test each module before proceeding. Use SDK startup, linker, and build files that match the actual O3C hardware; don’t make up pin assignments or memory settings.
