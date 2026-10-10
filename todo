@@ -1,1 +1,2 @@
-0 GO OVER "board_config.h" TO FIX VARIABLES AS "undef"
+0 GO OVER "/include/board_config.h" TO FIX VARIABLES AS "undef"
+0 ASSIGN FONT AND ALLOW TEXT PRINTING "/include/display.h"
