@@ -22,5 +22,59 @@ bool display_init(void)
 
 bool display_is_ready(void)
 {
+    return display_ready;
+}
+
+void display_draw_pixel(uint16_t x, uint16_t y, display_color_t color)
+{
+    (void)x;
+    (void)y;
+    (void)color;
     
+    if (!display_ready) {
+        return;
+    }
+
+    /*
+    * TODO:
+    * Check x/y against the confirmed display dimensions.
+    * Convert color to the hardware's pixel format.
+    * Call the display driver's pixel-drawing function.
+    */
+}
+
+void display_clear(display_color_t color)
+{
+    (void)color;
+
+    if (!display_ready) {
+        return;
+    }
+
+    /*
+    * TODO: Call the driver's screen-fill/clear function.
+    */
+}
+
+void display_fill_rect(
+    uint16_t x,
+    uint16_t y,
+    uint16_t width,
+    uint16_t height,
+    display_color_t color)
+{
+    (void)x;
+    (void)y;
+    (void)width;
+    (void)height;
+    (void)color;
+
+    if (!display_ready) {
+        return;
+    }
+
+    /*
+    * TODO:
+    * Clip the rectangle to screen bounds, then call the driver.
+    */
 }
