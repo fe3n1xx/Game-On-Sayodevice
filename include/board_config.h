@@ -7,17 +7,20 @@
 #define BOARD_DISPLAY_HEIGHT 80
 
 /* Set to 1 only after the corresponding hardware details are verified. */
-#define BOARD_DISPLAY_CONFIGURED 0
+#define BOARD_DISPLAY_CONFIGURED 1
 #define BOARD_INPUT_CONFIGURED   0
 #define BOARD_STORAGE_CONFIGURED 0
 
-#define BOARD_DISPLAY_CONTROLLER "undef"
+#define BOARD_DISPLAY_CONTROLLER "ST7735"
 #define BOARD_DISPLAY_INTERFACE "undef"
 
 #define BOARD_KEY_COUNT 3
-#define BOARD_KEY_PINS "undef"
-#define BOARD_KNOB_PIN_A "undef"
-#define BOARD_KNOB_PIN_B "undef"
+#define BOARD_TRIAL_SPI_INSTANCE   SPI1
+#define BOARD_PIN_SPI_SCK          GPIO_Pin_5  // PA5 (SPI1 Clock)
+#define BOARD_PIN_SPI_MOSI         GPIO_Pin_7  // PA7 (SPI1 MOSI)
+#define BOARD_PIN_DISPLAY_CS       GPIO_Pin_4  // PA4 (Chip Select)
+#define BOARD_PIN_DISPLAY_DC       GPIO_Pin_1  // PB1 (Data/Command)
+#define BOARD_PIN_DISPLAY_RESET    GPIO_Pin_0  // PB0 (Reset)
 
 #define BOARD_STORAGE_TYPE "Internal Flash"
 #define BOARD_STORAGE_CAPACITY_BYTES 480000 /* CHECK */
