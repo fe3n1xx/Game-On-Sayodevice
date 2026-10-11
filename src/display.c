@@ -1,4 +1,7 @@
 #include "display.h"
+#include "board_config.h"
+#include "st7735s.h"
+#include <stdio.h>
 
 /*
  * TODO:
@@ -35,12 +38,12 @@ void display_draw_pixel(uint16_t x, uint16_t y, display_color_t color)
         return;
     }
 
-    /*
-    * TODO:
-    * Check x/y against the confirmed display dimensions.
-    * Convert color to the hardware's pixel format.
-    * Call the display driver's pixel-drawing function.
-    */
+    if (x >= 160 || y >= 80) {
+        return;
+    }
+
+    // st377hs_draw_pixel(x, y, color);
+
 }
 
 void display_clear(display_color_t color)
@@ -51,9 +54,7 @@ void display_clear(display_color_t color)
         return;
     }
 
-    /*
-    * TODO: Call the driver's screen-fill/clear function.
-    */
+    display_fill_rect(0, 0, 160, 80, color);
 }
 
 void display_fill_rect(
@@ -73,8 +74,15 @@ void display_fill_rect(
         return;
     }
 
-    /*
-    * TODO:
-    * Clip the rectangle to screen bounds, then call the driver.
-    */
+    if (x >= 160 || y >= 80) {
+        return;
+    }
+    if (x + width > 160) {
+        width = 160 - x;
+    }
+    if (y + height > 80) {
+        height = 80 - y;
+    }
+
+    // st377hs_fill_rect(x, y, width, height, color);
 }
